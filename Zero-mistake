@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#241044">
+
+<title>ZERO MISTAKE - Created By dee</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#ffffff;
+  color:#222222;
+}
+
+header{
+  background:#ffffff;
+  border-bottom:1px solid #dddddd;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:42px;
+  height:42px;
+  border:4px solid #72c900;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#72c900;
+  font-size:25px;
+  font-weight:bold;
+}
+
+.brand-title{
+  color:#241044;
+  font-size:19px;
+  font-weight:bold;
+}
+
+.brand-subtitle{
+  color:#777777;
+  font-size:11px;
+  font-style:italic;
+  margin-top:2px;
+}
+
+.menu-button{
+  border:none;
+  background:none;
+  color:#241044;
+  font-size:25px;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px 15px 90px;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+h2{
+  color:#241044;
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#777777;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+/* HOME */
+
+.hero{
+  text-align:center;
+  background:#faf8fc;
+  border:1px solid #e3dcec;
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:15px;
+}
+
+.hero-zero{
+  color:#72c900;
+  font-size:65px;
+  font-weight:900;
+  line-height:1;
+}
+
+.hero-title{
+  color:#241044;
+  font-size:30px;
+  font-weight:bold;
+  margin-top:8px;
+}
+
+.hero-created{
+  color:#777777;
+  font-style:italic;
+  font-size:13px;
+  margin-top:4px;
+}
+
+.notice{
+  background:#f3fae8;
+  border:1px solid #c9e59a;
+  color:#3c551f;
+  padding:12px;
+  border-radius:10px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+/* MENU */
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.menu-card{
+  min-height:110px;
+  border:none;
+  border-radius:16px;
+  background:#241044;
+  color:#ffffff;
+  padding:18px;
+  text-align:left;
+  box-shadow:0 5px 15px rgba(36,16,68,.15);
+}
+
+.menu-card:active{
+  transform:scale(.98);
+}
+
+.menu-icon{
+  font-size:27px;
+  margin-bottom:10px;
+}
+
+.menu-title{
+  font-size:15px;
+  font-weight:bold;
+}
+
+.menu-desc{
+  color:#ddd5e8;
+  font-size:11px;
+  margin-top:6px;
+}
+
+/* CARD */
+
+.card{
+  background:#ffffff;
+  border:1px solid #ddd7e3;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 4px 14px rgba(36,16,68,.06);
+}
+
+/* FORM */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.form-full{
+  grid-column:1 / -1;
+}
+
+label{
+  display:block;
+  color:#666666;
+  font-size:12px;
+  margin-bottom:6px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:11px;
+  border:1px solid #bdb5c8;
+  border-radius:9px;
+  background:#ffffff;
+  color:#222222;
+  outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#72c900;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+/* BUTTON */
+
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.btn{
+  padding:10px 15px;
+  border-radius:9px;
+  border:1px solid #c9c1d2;
+  background:#ffffff;
+  color:#241044;
+  font-weight:bold;
+}
+
+.btn-primary{
+  background:#72c900;
+  border-color:#72c900;
+  color:#15220a;
+}
+
+.btn-danger{
+  background:#fff0f2;
+  border-color:#e39aa5;
+  color:#b51f34;
+}
+
+/* TABLE */
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:600px;
+}
+
+th,
+td{
+  padding:10px 8px;
+  border-bottom:1px solid #e2dfe5;
+  text-align:left;
+  font-size:12px;
+}
+
+th{
+  color:#241044;
+  font-size:11px;
+}
+
+.score-negative{
+  color:#d9364a;
+  font-weight:bold;
+}
+
+.score-zero{
+  color:#55a000;
+  font-weight:bold;
+}
+
+.empty{
+  text-align:center;
+  color:#888888;
+  padding:25px;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin:12px 0;
+}
+
+.stat{
+  background:#faf9fb;
+  border:1px solid #e1dce6;
+  border-radius:11px;
+  text-align:center;
+  padding:12px;
+}
+
+.stat-number{
+  display:block;
+  color:#72c900;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.stat-label{
+  color:#777777;
+  font-size:9px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#ffffff;
+  border-top:1px solid #dddddd;
+  z-index:20;
+}
+
+.bottom-inner{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.nav-item{
+  border:none;
+  background:none;
+  color:#777777;
+  padding:9px 3px;
+  font-size:10px;
+}
+
+.nav-item.active{
+  color:#72c900;
+}
+
+.nav-icon{
+  display:block;
+  font-size:19px;
+  margin-bottom:3px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-full{
+    grid-column:auto;
+  }
+
+  .stats{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="brand">
+
+    <div class="logo">✓</div>
+
+    <div>
+      <div class="brand-title">
+        ZERO MISTAKE
+      </div>
+
+      <div class="brand-subtitle">
+        Created By dee
+      </div>
+    </div>
+
+  </div>
+
+  <button class="menu-button" onclick="showPage('home')">
+    ☰
+  </button>
+
+</header>
+
+
+<div class="container">
+
+  <!-- HOME -->
+
+  <section id="home" class="page active">
+
+    <div class="hero">
+
+      <div class="hero-zero">
+        0
+      </div>
+
+      <div class="hero-title">
+        ZERO MISTAKE
+      </div>
+
+      <div class="hero-created">
+        Created By dee
+      </div>
+
+    </div>
+
+    <div class="notice">
+      Pencatatan accuracy harian yang sederhana,
+      rapi dan mudah dibuat menjadi laporan per User ID.
+    </div>
+
+
+    <div class="menu-grid">
+
+      <button class="menu-card"
+              onclick="showPage('petugas')">
+
+        <div class="menu-icon">👥</div>
+
+        <div class="menu-title">
+          1. DAFTAR PETUGAS
+        </div>
+
+        <div class="menu-desc">
+          Kelola nama petugas dan User ID
+        </div>
+
+      </button>
+
+
+      <button class="menu-card"
+              onclick="showPage('accuracy')">
+
+        <div class="menu-icon">📋</div>
+
+        <div class="menu-title">
+          2. CATATAN ACCURACY
+        </div>
+
+        <div class="menu-desc">
+          Catat kesalahan dan score harian
+        </div>
+
+      </button>
+
+
+      <button class="menu-card"
+              onclick="showPage('daily')">
+
+        <div class="menu-icon">📅</div>
+
+        <div class="menu-title">
+          3. DAILY REPORT
+        </div>
+
+        <div class="menu-desc">
+          Lihat rekap catatan harian
+        </div>
+
+      </button>
+
+
+      <button class="menu-card"
+              onclick="showPage('laporan')">
+
+        <div class="menu-icon">🖨️</div>
+
+        <div class="menu-title">
+          4. CETAK LAPORAN
+        </div>
+
+        <div class="menu-desc">
+          Preview, cetak dan share laporan
+        </div>
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- HALAMAN PETUGAS -->
+
+  <section id="petugas" class="page">
+
+    <h2>DAFTAR PETUGAS</h2>
+
+    <div class="subtitle">
+      Kelola nama petugas dan User ID.
+    </div>
+
+    <div class="card">
+
+      <div class="form-grid">
+
+        <div>
+          <label>Nama Petugas</label>
+          <input id="namaPetugas"
+                 type="text"
+                 placeholder="Nama petugas">
+        </div>
+
+        <div>
+          <label>User ID</label>
+          <input id="userId"
+                 type="text"
+                 placeholder="Contoh: ANDI01">
+        </div>
+
+      </div>
+
+      <div class="actions">
+
+        <button class="btn btn-primary"
+                onclick="simpanPetugas()">
+          SIMPAN
+        </button>
+
+        <button class="btn"
+                onclick="resetPetugas()">
+          BATAL
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>NO</th>
+              <th>NAMA PETUGAS</th>
+              <th>USER ID</th>
+              <th>AKSI</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="tabelPetugas">
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HALAMAN ACCURACY -->
+
+  <section id="accuracy" class="page">
+
+    <h2>CATATAN ACCURACY</h2>
+
+    <div class="subtitle">
+      Catat kesalahan atau temuan accuracy harian.
+    </div>
+
+    <div class="card">
+
+      <div class="form-grid">
+
+        <div>
+          <label>Tanggal</label>
+          <input id="tanggalAccuracy"
+                 type="date">
+        </div>
+
+        <div>
+          <label>Pilih Petugas</label>
+          <select id="petugasAccuracy">
+            <option value="">
+              Pilih Petugas
+            </option>
+          </select>
+        </div>
+
+        <div class="form-full">
+
+          <label>
+            Catatan Kesalahan
+          </label>
+
+          <textarea id="catatanAccuracy"
+                    placeholder="Tuliskan catatan kesalahan..."></textarea>
+
+        </div>
+
+        <div>
+
+          <label>
+            Pilih Score
+          </label>
+
+          <select id="scoreAccuracy">
+
+            <option value="-10">
+              -10 (Berat)
+            </option>
+
+            <option value="-5"
+                    selected>
+              -5 (Sedang)
+            </option>
+
+            <option value="0">
+              0 (Baik)
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button class="btn btn-primary"
+                onclick="simpanAccuracy()">
+          SIMPAN
+        </button>
+
+        <button class="btn"
+                onclick="resetAccuracy()">
+          BATAL
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>TANGGAL</th>
+              <th>USER ID</th>
+              <th>NAMA</th>
+              <th>CATATAN</th>
+              <th>SCORE</th>
+              <th>AKSI</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="tabelAccuracy">
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HALAMAN DAILY REPORT -->
+
+  <section id="daily" class="page">
+
+    <h2>DAILY REPORT</h2>
+
+    <div class="subtitle">
+      Rekap pencatatan accuracy berdasarkan periode.
+    </div>
+
+    <div class="card">
+
+      <div class="form-grid">
+
+        <div>
+
+          <label>
+            Dari Tanggal
+          </label>
+
+          <input id="dailyDari"
+                 type="date">
+
+        </div>
+
+        <div>
+
+          <label>
+            Sampai Tanggal
+          </label>
+
+          <input id="dailySampai"
+                 type="date">
+
+        </div>
+
+        <div class="form-full">
+
+          <label>
+            Pilih Petugas
+          </label>
+
+          <select id="dailyPetugas">
+
+            <option value="">
+              Semua Petugas
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+      <div class="actions">
+
+        <button class="btn btn-primary"
+                onclick="tampilkanDaily()">
+          TAMPILKAN
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="hasilDaily"
+         class="card">
+
+      Belum ada laporan.
+
+    </div>
+
+  </section>
+
+
+  <!-- HALAMAN CETAK LAPORAN -->
+
+  <section id="laporan" class="page">
+
+    <h2>CETAK LAPORAN</h2>
+
+    <div class="subtitle">
+      Pilih periode dan User ID untuk membuat laporan.
+    </div>
+
+    <div class="card">
+
+      <div class="form-grid">
+
+        <div>
+
+          <label>
+            Dari Tanggal
+          </label>
+
+          <input id="laporanDari"
+                 type="date">
+
+        </div>
+
+        <div>
+
+          <label>
+            Sampai Tanggal
+          </label>
+
+          <input id="laporanSampai"
+                 type="date">
+
+        </div>
+
+        <div class="form-full">
+
+          <label>
+            Pilih Petugas
+          </label>
+
+          <select id="laporanPetugas">
+
+            <option value="">
+              Semua User
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button class="btn btn-primary"
+                onclick="previewLaporan()">
+          PREVIEW LAPORAN
+        </button>
+
+        <button class="btn"
+                onclick="cetakLaporan()">
+          CETAK
+        </button>
+
+        <button class="btn"
+                onclick="shareLaporan()">
+          SHARE
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div id="hasilLaporan"
+         class="card">
+
+      Belum ada laporan.
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+  <div class="bottom-inner">
+
+    <button class="nav-item active"
+            onclick="showPage('home')">
+
+      <span class="nav-icon">⌂</span>
+      Beranda
+
+    </button>
+
+
+    <button class="nav-item"
+            onclick="showPage('petugas')">
+
+      <span class="nav-icon">♙</span>
+      Petugas
+
+    </button>
+
+
+    <button class="nav-item"
+            onclick="showPage('accuracy')">
+
+      <span class="nav-icon">☑</span>
+      Catatan
+
+    </button>
+
+
+    <button class="nav-item"
+            onclick="showPage('laporan')">
+
+      <span class="nav-icon">▣</span>
+      Laporan
+
+    </button>
+
+  </div>
+
+</nav>
+
+
+<script>
+const STORAGE_KEY = "zeroMistakeData";
+
+let data = JSON.parse(
+  localStorage.getItem(STORAGE_KEY)
+) || {
+  petugas: [],
+  accuracy: []
+};
+
+
+/* =========================
+   PENYIMPANAN DATA
+========================= */
+
+function simpanData(){
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(data)
+  );
+
+}
+
+
+/* =========================
+   UTILITAS
+========================= */
+
+function escapeHTML(text){
+
+  return String(text || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function formatTanggal(tanggal){
+
+  if(!tanggal) return "-";
+
+  const bagian = tanggal.split("-");
+
+  return bagian[2] + "/" +
+         bagian[1] + "/" +
+         bagian[0];
+
+}
+
+
+function tanggalHariIni(){
+
+  const sekarang = new Date();
+
+  const tahun =
+    sekarang.getFullYear();
+
+  const bulan =
+    String(
+      sekarang.getMonth()+1
+    ).padStart(2,"0");
+
+  const hari =
+    String(
+      sekarang.getDate()
+    ).padStart(2,"0");
+
+  return tahun + "-" +
+         bulan + "-" +
+         hari;
+
+}
+
+
+/* =========================
+   NAVIGASI
+========================= */
+
+function showPage(page){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(function(section){
+
+      section.classList.remove("active");
+
+    });
+
+
+  const target =
+    document.getElementById(page);
+
+  if(target){
+
+    target.classList.add("active");
+
+  }
+
+
+  document
+    .querySelectorAll(".nav-item")
+    .forEach(function(button){
+
+      button.classList.remove("active");
+
+    });
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+
+  if(page === "petugas"){
+
+    tampilkanPetugas();
+
+  }
+
+
+  if(page === "accuracy"){
+
+    isiDropdownPetugas();
+    tampilkanAccuracy();
+
+  }
+
+
+  if(page === "daily"){
+
+    isiDropdownPetugas();
+    tampilkanDaily();
+
+  }
+
+
+  if(page === "laporan"){
+
+    isiDropdownPetugas();
+    previewLaporan();
+
+  }
+
+}
+
+
+/* =========================
+   DAFTAR PETUGAS
+========================= */
+
+function simpanPetugas(){
+
+  const nama =
+    document
+      .getElementById("namaPetugas")
+      .value
+      .trim();
+
+  const userId =
+    document
+      .getElementById("userId")
+      .value
+      .trim()
+      .toUpperCase();
+
+
+  if(!nama || !userId){
+
+    alert(
+      "Nama Petugas dan User ID wajib diisi."
+    );
+
+    return;
+
+  }
+
+
+  const sudahAda =
+    data.petugas.some(function(p){
+
+      return p.userId === userId;
+
+    });
+
+
+  if(sudahAda){
+
+    alert(
+      "User ID tersebut sudah terdaftar."
+    );
+
+    return;
+
+  }
+
+
+  data.petugas.push({
+
+    id:
+      Date.now().toString(),
+
+    nama:nama,
+
+    userId:userId
+
+  });
+
+
+  simpanData();
+
+  resetPetugas();
+
+  tampilkanPetugas();
+
+  alert(
+    "Petugas berhasil disimpan."
+  );
+
+}
+
+
+function tampilkanPetugas(){
+
+  const tabel =
+    document.getElementById(
+      "tabelPetugas"
+    );
+
+
+  if(data.petugas.length === 0){
+
+    tabel.innerHTML = `
+      <tr>
+        <td colspan="4"
+            class="empty">
+          Belum ada petugas.
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+
+  tabel.innerHTML =
+    data.petugas
+      .map(function(p,index){
+
+        return `
+          <tr>
+
+            <td>
+              ${index+1}
+            </td>
+
+            <td>
+              ${escapeHTML(p.nama)}
+            </td>
+
+            <td>
+              ${escapeHTML(p.userId)}
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-danger"
+                onclick="hapusPetugas('${p.id}')">
+
+                HAPUS
+
+              </button>
+
+            </td>
+
+          </tr>
+        `;
+
+      })
+      .join("");
+
+}
+
+
+function hapusPetugas(id){
+
+  const yakin =
+    confirm(
+      "Hapus petugas ini?"
+    );
+
+  if(!yakin) return;
+
+
+  data.petugas =
+    data.petugas.filter(
+      function(p){
+
+        return p.id !== id;
+
+      }
+    );
+
+
+  data.accuracy =
+    data.accuracy.filter(
+      function(a){
+
+        return a.petugasId !== id;
+
+      }
+    );
+
+
+  simpanData();
+
+  tampilkanPetugas();
+
+  isiDropdownPetugas();
+
+}
+
+
+function resetPetugas(){
+
+  document
+    .getElementById("namaPetugas")
+    .value = "";
+
+  document
+    .getElementById("userId")
+    .value = "";
+
+}
+
+
+/* =========================
+   DROPDOWN PETUGAS
+========================= */
+
+function isiDropdownPetugas(){
+
+  const dropdowns = [
+
+    "petugasAccuracy",
+    "dailyPetugas",
+    "laporanPetugas"
+
+  ];
+
+
+  dropdowns.forEach(
+    function(id){
+
+      const dropdown =
+        document.getElementById(id);
+
+      if(!dropdown) return;
+
+
+      const nilaiLama =
+        dropdown.value;
+
+
+      const semuaText =
+        id === "laporanPetugas"
+          ? "Semua User"
+          : "Semua Petugas";
+
+
+      dropdown.innerHTML =
+        `<option value="">
+          ${semuaText}
+        </option>`;
+
+
+      data.petugas.forEach(
+        function(p){
+
+          dropdown.innerHTML += `
+            <option value="${p.id}">
+              ${escapeHTML(p.nama)}
+              — ${escapeHTML(p.userId)}
+            </option>
+          `;
+
+        }
+      );
+
+
+      dropdown.value =
+        nilaiLama;
+
+    }
+  );
+
+}
+
+
+/* =========================
+   ACCURACY
+========================= */
+
+function simpanAccuracy(){
+
+  const tanggal =
+    document
+      .getElementById(
+        "tanggalAccuracy"
+      )
+      .value;
+
+  const petugasId =
+    document
+      .getElementById(
+        "petugasAccuracy"
+      )
+      .value;
+
+  const catatan =
+    document
+      .getElementById(
+        "catatanAccuracy"
+      )
+      .value
+      .trim();
+
+  const score =
+    Number(
+      document
+        .getElementById(
+          "scoreAccuracy"
+        )
+        .value
+    );
+
+
+  if(!tanggal){
+
+    alert(
+      "Tanggal wajib diisi."
+    );
+
+    return;
+
+  }
+
+
+  if(!petugasId){
+
+    alert(
+      "Silakan pilih petugas."
+    );
+
+    return;
+
+  }
+
+
+  if(!catatan){
+
+    alert(
+      "Catatan accuracy wajib diisi."
+    );
+
+    return;
+
+  }
+
+
+  data.accuracy.push({
+
+    id:
+      Date.now().toString(),
+
+    tanggal:
+      tanggal,
+
+    petugasId:
+      petugasId,
+
+    catatan:
+      catatan,
+
+    score:
+      score
+
+  });
+
+
+  simpanData();
+
+  resetAccuracy();
+
+  tampilkanAccuracy();
+
+  alert(
+    "Catatan accuracy berhasil disimpan."
+  );
+
+}
+
+
+function tampilkanAccuracy(){
+
+  const tabel =
+    document.getElementById(
+      "tabelAccuracy"
+    );
+
+
+  if(data.accuracy.length === 0){
+
+    tabel.innerHTML = `
+      <tr>
+        <td colspan="6"
+            class="empty">
+          Belum ada catatan accuracy.
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+
+  const daftar =
+    [...data.accuracy]
+      .sort(function(a,b){
+
+        return b.tanggal.localeCompare(
+          a.tanggal
+        );
+
+      });
+
+
+  tabel.innerHTML =
+    daftar
+      .map(function(a){
+
+        const petugas =
+          data.petugas.find(
+            function(p){
+
+              return p.id === a.petugasId;
+
+            }
+          );
+
+
+        const nama =
+          petugas
+            ? petugas.nama
+            : "-";
+
+
+        const userId =
+          petugas
+            ? petugas.userId
+            : "-";
+
+
+        const kelas =
+          a.score < 0
+            ? "score-negative"
+            : "score-zero";
+
+
+        return `
+          <tr>
+
+            <td>
+              ${formatTanggal(a.tanggal)}
+            </td>
+
+            <td>
+              ${escapeHTML(userId)}
+            </td>
+
+            <td>
+              ${escapeHTML(nama)}
+            </td>
+
+            <td>
+              ${escapeHTML(a.catatan)}
+            </td>
+
+            <td class="${kelas}">
+              ${a.score}
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-danger"
+                onclick="hapusAccuracy('${a.id}')">
+
+                HAPUS
+
+              </button>
+
+            </td>
+
+          </tr>
+        `;
+
+      })
+      .join("");
+
+}
+
+
+function hapusAccuracy(id){
+
+  if(
+    !confirm(
+      "Hapus catatan accuracy ini?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  data.accuracy =
+    data.accuracy.filter(
+      function(a){
+
+        return a.id !== id;
+
+      }
+    );
+
+
+  simpanData();
+
+  tampilkanAccuracy();
+
+}
+
+
+function resetAccuracy(){
+
+  document
+    .getElementById(
+      "tanggalAccuracy"
+    )
+    .value =
+    tanggalHariIni();
+
+  document
+    .getElementById(
+      "petugasAccuracy"
+    )
+    .value = "";
+
+  document
+    .getElementById(
+      "catatanAccuracy"
+    )
+    .value = "";
+
+  document
+    .getElementById(
+      "scoreAccuracy"
+    )
+    .value = "-5";
+
+}
+
+
+/* =========================
+   FILTER DATA
+========================= */
+
+function ambilDataFilter(
+  dari,
+  sampai,
+  petugasId
+){
+
+  return data.accuracy.filter(
+    function(a){
+
+      const tanggalSesuai =
+        (!dari ||
+         a.tanggal >= dari) &&
+        (!sampai ||
+         a.tanggal <= sampai);
+
+
+      const petugasSesuai =
+        !petugasId ||
+        a.petugasId === petugasId;
+
+
+      return (
+        tanggalSesuai &&
+        petugasSesuai
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================
+   RINGKASAN
+========================= */
+
+function buatRingkasan(daftar){
+
+  const jumlah =
+    daftar.length;
+
+
+  const totalScore =
+    daftar.reduce(
+      function(total,a){
+
+        return total + a.score;
+
+      },
+      0
+    );
+
+
+  const rata =
+    jumlah
+      ? (
+          totalScore /
+          jumlah
+        ).toFixed(2)
+      : "0.00";
+
+
+  return `
+
+    <div class="stats">
+
+      <div class="stat">
+
+        <span class="stat-number">
+          ${jumlah}
+        </span>
+
+        <span class="stat-label">
+          TOTAL CATATAN
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span class="stat-number">
+          ${totalScore}
+        </span>
+
+        <span class="stat-label">
+          TOTAL SCORE
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span class="stat-number">
+          ${rata}
+        </span>
+
+        <span class="stat-label">
+          RATA-RATA
+        </span>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   TABEL LAPORAN
+========================= */
+
+function buatTabelLaporan(
+  daftar
+){
+
+  if(daftar.length === 0){
+
+    return `
+
+      <div class="empty">
+        Tidak ada data pada periode ini.
+      </div>
+
+    `;
+
+  }
+
+
+  return `
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>
+              NO
+            </th>
+
+            <th>
+              TANGGAL
+            </th>
+
+            <th>
+              USER ID
+            </th>
+
+            <th>
+              NAMA
+            </th>
+
+            <th>
+              CATATAN
+            </th>
+
+            <th>
+              SCORE
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          ${
+            daftar
+              .map(function(a,index){
+
+                const petugas =
+                  data.petugas.find(
+                    function(p){
+
+                      return p.id ===
+                             a.petugasId;
+
+                    }
+                  );
+
+
+                return `
+
+                  <tr>
+
+                    <td>
+                      ${index+1}
+                    </td>
+
+                    <td>
+                      ${formatTanggal(
+                        a.tanggal
+                      )}
+                    </td>
+
+                    <td>
+                      ${
+                        petugas
+                          ? escapeHTML(
+                              petugas.userId
+                            )
+                          : "-"
+                      }
+                    </td>
+
+                    <td>
+                      ${
+                        petugas
+                          ? escapeHTML(
+                              petugas.nama
+                            )
+                          : "-"
+                      }
+                    </td>
+
+                    <td>
+                      ${escapeHTML(
+                        a.catatan
+                      )}
+                    </td>
+
+                    <td class="${
+                      a.score < 0
+                        ? "score-negative"
+                        : "score-zero"
+                    }">
+
+                      ${a.score}
+
+                    </td>
+
+                  </tr>
+
+                `;
+
+              })
+              .join("")
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   DAILY REPORT
+========================= */
+
+function tampilkanDaily(){
+
+  const dari =
+    document
+      .getElementById(
+        "dailyDari"
+      )
+      .value;
+
+  const sampai =
+    document
+      .getElementById(
+        "dailySampai"
+      )
+      .value;
+
+  const petugasId =
+    document
+      .getElementById(
+        "dailyPetugas"
+      )
+      .value;
+
+
+  const daftar =
+    ambilDataFilter(
+      dari,
+      sampai,
+      petugasId
+    );
+
+
+  let namaPetugas =
+    "Semua Petugas";
+
+
+  if(petugasId){
+
+    const petugas =
+      data.petugas.find(
+        function(p){
+
+          return p.id ===
+                 petugasId;
+
+        }
+      );
+
+
+    if(petugas){
+
+      namaPetugas =
+        petugas.nama +
+        " — " +
+        petugas.userId;
+
+    }
+
+  }
+
+
+  document
+    .getElementById(
+      "hasilDaily"
+    )
+    .innerHTML = `
+
+      <h3>
+        ${escapeHTML(
+          namaPetugas
+        )}
+      </h3>
+
+      <p class="subtitle">
+        Periode:
+        ${
+          formatTanggal(dari)
+        }
+        —
+        ${
+          formatTanggal(sampai)
+        }
+      </p>
+
+      ${buatRingkasan(daftar)}
+
+      ${buatTabelLaporan(daftar)}
+
+    `;
+
+}
+
+
+/* =========================
+   PREVIEW LAPORAN
+========================= */
+
+function previewLaporan(){
+
+  const dari =
+    document
+      .getElementById(
+        "laporanDari"
+      )
+      .value;
+
+  const sampai =
+    document
+      .getElementById(
+        "laporanSampai"
+      )
+      .value;
+
+  const petugasId =
+    document
+      .getElementById(
+        "laporanPetugas"
+      )
+      .value;
+
+
+  const daftar =
+    ambilDataFilter(
+      dari,
+      sampai,
+      petugasId
+    );
+
+
+  let judul =
+    "SEMUA USER";
+
+
+  if(petugasId){
+
+    const petugas =
+      data.petugas.find(
+        function(p){
+
+          return p.id ===
+                 petugasId;
+
+        }
+      );
+
+
+    if(petugas){
+
+      judul =
+        petugas.nama +
+        " — " +
+        petugas.userId;
+
+    }
+
+  }
+
+
+  document
+    .getElementById(
+      "hasilLaporan"
+    )
+    .innerHTML = `
+
+      <div style="
+        text-align:center;
+        margin-bottom:20px;
+      ">
+
+        <h2>
+          ZERO MISTAKE
+        </h2>
+
+        <p>
+          Created By dee
+        </p>
+
+        <h3 style="
+          margin-top:12px;
+        ">
+          LAPORAN CATATAN ACCURACY
+        </h3>
+
+      </div>
+
+
+      <h3>
+        ${escapeHTML(judul)}
+      </h3>
+
+      <p class="subtitle">
+        Periode:
+        ${formatTanggal(dari)}
+        —
+        ${formatTanggal(sampai)}
+      </p>
+
+
+      ${buatRingkasan(daftar)}
+
+      ${buatTabelLaporan(daftar)}
+
+
+      <p style="
+        margin-top:20px;
+        text-align:right;
+        color:#777;
+        font-size:11px;
+      ">
+
+        ZERO MISTAKE
+        • Created By dee
+
+      </p>
+
+    `;
+
+}
+
+
+/* =========================
+   CETAK
+========================= */
+
+function cetakLaporan(){
+
+  previewLaporan();
+
+  setTimeout(
+    function(){
+
+      window.print();
+
+    },
+    300
+  );
+
+}
+
+
+/* =========================
+   SHARE
+========================= */
+
+async function shareLaporan(){
+
+  previewLaporan();
+
+
+  const isi =
+    document
+      .getElementById(
+        "hasilLaporan"
+      )
+      .innerText;
+
+
+  if(
+    navigator.share
+  ){
+
+    try{
+
+      await navigator.share({
+
+        title:
+          "ZERO MISTAKE - Laporan",
+
+        text:
+          isi
+
+      });
+
+    }
+    catch(error){
+
+      console.log(
+        "Share dibatalkan."
+      );
+
+    }
+
+  }
+  else{
+
+    alert(
+      "Fitur Share tidak tersedia pada browser ini. Gunakan CETAK lalu pilih Save as PDF."
+    );
+
+  }
+
+}
+
+
+/* =========================
+   INISIALISASI
+========================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    document
+      .getElementById(
+        "tanggalAccuracy"
+      )
+      .value =
+      tanggalHariIni();
+
+
+    isiDropdownPetugas();
+
+    tampilkanPetugas();
+
+    tampilkanAccuracy();
+
+  }
+);
+</script>
+
+</body>
+</html>

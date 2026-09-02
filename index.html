@@ -1337,7 +1337,25 @@ function hapusPetugas(id){
   isiDropdownPetugas();
 
 }
+function editPetugas(id){
 
+    const petugas = data.petugas.find(
+        function(p){
+            return p.id === id;
+        }
+    );
+
+    if(!petugas) return;
+
+    document
+        .getElementById("namaPetugas")
+        .value = petugas.nama;
+
+    document
+        .getElementById("userId")
+        .value = petugas.userId;
+
+}
 
 function resetPetugas(){
 

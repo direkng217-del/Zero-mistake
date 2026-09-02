@@ -1998,8 +1998,7 @@ function tampilkanDaily(){
       data.petugas.find(
         function(p){
 
-          return p.id ===
-                 petugasId;
+         return String(p.id) === String(petugasId);
 
         }
       );

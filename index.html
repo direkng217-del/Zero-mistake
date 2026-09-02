@@ -1161,76 +1161,127 @@ function showPage(page){
    DAFTAR PETUGAS
 ========================= */
 
+let editingPetugasId = null;
+
 function simpanPetugas(){
 
-  const nama =
-    document
-      .getElementById("namaPetugas")
-      .value
-      .trim();
+    const nama =
+        document
+        .getElementById("namaPetugas")
+        .value
+        .trim();
 
-  const userId =
-    document
-      .getElementById("userId")
-      .value
-      .trim()
-      .toUpperCase();
+    const userId =
+        document
+        .getElementById("userId")
+        .value
+        .trim()
+        .toUpperCase();
 
+    if(!nama || !userId){
 
-  if(!nama || !userId){
+        alert(
+            "Nama Petugas dan User ID wajib diisi."
+        );
 
-    alert(
-      "Nama Petugas dan User ID wajib diisi."
-    );
+        return;
+    }
 
-    return;
+    // =========================
+    // MODE EDIT
+    // =========================
+    if(editingPetugasId){
 
-  }
+        const petugas =
+            data.petugas.find(function(p){
+                return p.id === editingPetugasId;
+            });
 
+        if(!petugas){
 
-  const sudahAda =
-    data.petugas.some(function(p){
+            alert("Data petugas tidak ditemukan.");
 
-      return p.userId === userId;
+            return;
+        }
+
+        // Cek User ID hanya pada petugas lain
+        const duplikat =
+            data.petugas.some(function(p){
+
+                return p.id !== editingPetugasId &&
+                       p.userId === userId;
+
+            });
+
+        if(duplikat){
+
+            alert(
+                "User ID tersebut sudah digunakan petugas lain."
+            );
+
+            return;
+        }
+
+        petugas.nama = nama;
+        petugas.userId = userId;
+
+        editingPetugasId = null;
+
+        simpanData();
+        resetPetugas();
+        tampilkanPetugas();
+        isiDropdownPetugas();
+
+        alert(
+            "Data petugas berhasil diperbarui."
+        );
+
+        return;
+    }
+
+    // =========================
+    // MODE TAMBAH BARU
+    // =========================
+
+    const sudahAda =
+        data.petugas.some(function(p){
+
+            return p.userId === userId;
+
+        });
+
+    if(sudahAda){
+
+        alert(
+            "User ID tersebut sudah terdaftar."
+        );
+
+        return;
+    }
+
+    data.petugas.push({
+
+        id:
+            Date.now().toString(),
+
+        nama: nama,
+
+        userId: userId
 
     });
 
+    simpanData();
 
-  if(sudahAda){
+    resetPetugas();
+
+    tampilkanPetugas();
+
+    isiDropdownPetugas();
 
     alert(
-      "User ID tersebut sudah terdaftar."
+        "Petugas berhasil disimpan."
     );
-
-    return;
-
-  }
-
-
-  data.petugas.push({
-
-    id:
-      Date.now().toString(),
-
-    nama:nama,
-
-    userId:userId
-
-  });
-
-
-  simpanData();
-
-  resetPetugas();
-
-  tampilkanPetugas();
-
-  alert(
-    "Petugas berhasil disimpan."
-  );
-
 }
-
 
 function tampilkanPetugas(){
 

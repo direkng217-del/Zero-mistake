@@ -2185,7 +2185,101 @@ function tampilkanDaily(){
 
 }
 
+/* =========================
+   MONTHLY REPORT
+========================= */
 
+function tampilkanMonthly(){
+
+    const tbody =
+        document.getElementById("monthlyReportBody");
+
+    if(!tbody) return;
+
+    if(data.petugas.length === 0){
+
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="14">
+                    Belum ada data petugas.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+    let html = "";
+
+    data.petugas.forEach(function(p){
+
+        const hasil = [];
+
+        for(let bulan = 0; bulan < 12; bulan++){
+
+            let scoreBulan = 100;
+
+            data.accuracy.forEach(function(a){
+
+                if(
+                    String(a.petugasId) === String(p.id)
+                ){
+
+                    const tanggal =
+                        new Date(a.tanggal);
+
+                    if(
+                        tanggal.getMonth() === bulan
+                    ){
+
+                        scoreBulan +=
+                            Number(a.score || 0);
+                    }
+                }
+            });
+
+            if(scoreBulan < 0){
+                scoreBulan = 0;
+            }
+
+            hasil.push(scoreBulan);
+        }
+
+        const finalScore =
+            hasil.reduce(function(total, score){
+                return total + score;
+            }, 0) / 12;
+
+        html += `
+            <tr>
+                <td>
+                    ${escapeHTML(p.nama)}
+                    <br>
+                    <small>${escapeHTML(p.userId)}</small>
+                </td>
+
+                <td>${hasil[0]}</td>
+                <td>${hasil[1]}</td>
+                <td>${hasil[2]}</td>
+                <td>${hasil[3]}</td>
+                <td>${hasil[4]}</td>
+                <td>${hasil[5]}</td>
+                <td>${hasil[6]}</td>
+                <td>${hasil[7]}</td>
+                <td>${hasil[8]}</td>
+                <td>${hasil[9]}</td>
+                <td>${hasil[10]}</td>
+                <td>${hasil[11]}</td>
+
+                <td>
+                    ${finalScore.toFixed(2)}
+                </td>
+            </tr>
+        `;
+    });
+
+    tbody.innerHTML = html;
+}
 /* =========================
    PREVIEW LAPORAN
 ========================= */

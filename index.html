@@ -2353,11 +2353,21 @@ function tampilkanMonthly(){
             hasil.push(scoreBulan);
         }
 
-        const finalScore =
-            hasil.reduce(function(total, score){
-                return total + score;
-            }, 0) / 12;
+        const bulanAdaData =
+    data.accuracy.filter(function(a){
+        return String(a.petugasId) === String(p.id);
+    }).map(function(a){
+        return new Date(a.tanggal).getMonth();
+    }).filter(function(value, index, array){
+        return array.indexOf(value) === index;
+    });
 
+const finalScore =
+    bulanAdaData.length > 0
+        ? bulanAdaData.reduce(function(total, bulan){
+            return total + hasil[bulan];
+        }, 0) / bulanAdaData.length
+        : 100;
         html += `
             <tr>
                 <td>

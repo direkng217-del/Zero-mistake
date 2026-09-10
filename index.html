@@ -448,6 +448,66 @@ th{
 .app-content{
   display:none;
 }
+  /* =========================
+   RAPAPIH MONTHLY REPORT
+========================= */
+
+.monthly-card{
+    width:100%;
+    box-sizing:border-box;
+    overflow:hidden;
+}
+
+.monthly-table-wrap{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.monthly-table{
+    width:max-content;
+    min-width:100%;
+    border-collapse:collapse;
+}
+
+.monthly-table th,
+.monthly-table td{
+    padding:10px 12px;
+    white-space:nowrap;
+    text-align:center;
+}
+
+.monthly-table th:first-child,
+.monthly-table td:first-child{
+    text-align:left;
+    position:sticky;
+    left:0;
+    background:white;
+    z-index:2;
+}
+
+@media(max-width:600px){
+
+    .monthly-card{
+        margin-top:15px;
+        border-radius:18px;
+    }
+
+    .monthly-table-wrap{
+        overflow-x:auto;
+    }
+
+    .monthly-table th,
+    .monthly-table td{
+        padding:9px 10px;
+        font-size:12px;
+    }
+
+    .monthly-table th:first-child,
+    .monthly-table td:first-child{
+        min-width:95px;
+    }
+}
 </style>
 </head>
 
